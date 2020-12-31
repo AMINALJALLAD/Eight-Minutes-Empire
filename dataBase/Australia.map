@@ -1,0 +1,10 @@
+[Territories]
+#Sydney,AAA,Perth,Melbourne,*NewCastle
+Melbourne,AAA,Canberra,Brisbane,*GoldCoast
+Canberra,AAA,Brisbane,Melbourne
+Brisbane,AAA,Canberra,Melbourne
+Perth,AAA,Brisbane,Melbourne
+NewCastle,AAA,Perth,*Sydney
+
+GoldCoast,BBB,Darwin,*Melbourne
+Darwin,BBB,GoldCoast

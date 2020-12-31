@@ -1,0 +1,119 @@
+
+a_myo@DESKTOP-N5DQNQC MINGW64 /f/Comp345/Eight-Minute-Empire/Eight-Minute-Empire
+$ git init
+Initialized empty Git repository in F:/Comp345/Eight-Minute-Empire/Eight-Minute-Empire/.git/
+
+a_myo@DESKTOP-N5DQNQC MINGW64 /f/Comp345/Eight-Minute-Empire/Eight-Minute-Empire (master)
+$ git add .
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+
+a_myo@DESKTOP-N5DQNQC MINGW64 /f/Comp345/Eight-Minute-Empire/Eight-Minute-Empire (master)
+$ git commit -m "initialize"
+[master (root-commit) 66f78c2] initialize
+ 11 files changed, 343 insertions(+)
+ create mode 100644 Eight-Minute-Empire.cpp
+ create mode 100644 Eight-Minute-Empire.vcxproj
+ create mode 100644 Eight-Minute-Empire.vcxproj.filters
+ create mode 100644 Eight-Minute-Empire.vcxproj.user
+ create mode 100644 Graph/AdjList.cpp
+ create mode 100644 Graph/AdjList.h
+ create mode 100644 Graph/AdjListNode.cpp
+ create mode 100644 Graph/AdjListNode.h
+ create mode 100644 Graph/Graph.cpp
+ create mode 100644 Graph/Graph.h
+ create mode 100644 README.md
+
+a_myo@DESKTOP-N5DQNQC MINGW64 /f/Comp345/Eight-Minute-Empire/Eight-Minute-Empire (master)
+$ git remote add origin https://github.com/Amr-YMohamed/Eight-Minute-Empire.git
+
+a_myo@DESKTOP-N5DQNQC MINGW64 /f/Comp345/Eight-Minute-Empire/Eight-Minute-Empire (master)
+$ git push -u origin master
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (14/14), 3.91 KiB | 400.00 KiB/s, done.
+Total 14 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/Amr-YMohamed/Eight-Minute-Empire.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+a_myo@DESKTOP-N5DQNQC MINGW64 /f/Comp345/Eight-Minute-Empire/Eight-Minute-Empire (master)
+$
+////////////////////////////////////////////////////////////////////////////////////////////////////
+Building Boost
+https://www.youtube.com/watch?v=5AmwIwedTCM
+bootstrap
+b2 toolset=msvc-19.0 variant=debug,release threading=multi link=static
+///////////////////////////////////////////////////////////////////////////////////////////////////
+update local Repo with upstream:
+
+1- git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+2- git remote -v
+3- git fetch upstream
+4- git checkout master
+5- git merge upstream/master
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+Hide input keystrokes:
+1-windows:
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+int main()
+{
+    HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE); 
+    DWORD mode = 0;
+    GetConsoleMode(hStdin, &mode);
+    SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_INPUT));
+
+    string s;
+    getline(cin, s);
+
+    cout << s << endl;
+    return 0;
+}//main 
+
+restore settings:
+
+SetConsoleMode(hStdin, mode);
+tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+
+
+
+2-Unix:
+#include <iostream>
+#include <string>
+#include <termios.h>
+#include <unistd.h>
+
+using namespace std;
+
+int main()
+{
+    termios oldt;
+    tcgetattr(STDIN_FILENO, &oldt);
+    termios newt = oldt;
+    newt.c_lflag &= ~ECHO;
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+    string s;
+    getline(cin, s);
+
+    cout << s << endl;
+    return 0;
+}//main 
+restore settings:
+
+SetConsoleMode(hStdin, mode);
+tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+
+sourcs:
+http://www.cplusplus.com/forum/beginner/43683/
+https://stackoverflow.com/questions/6899025/hide-user-input-on-password-prompt
+///////////////////////////////////////////////////////////
